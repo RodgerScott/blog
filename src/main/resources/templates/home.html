@@ -6,7 +6,9 @@
 </head>
 <body>
 
-    <h1>This is a homepage</h1>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+    <h1>This is a homepage!</h1>
 
     <div th:if="${name}">
 
@@ -20,6 +22,8 @@
             <h3 th:text="${user}"></h3>
         </div>
     </div>
+
+    <footer th:replace="partials/footer :: footer"></footer>
 
 </body>
 </html>
