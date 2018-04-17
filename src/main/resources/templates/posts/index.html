@@ -6,11 +6,13 @@
 </head>
 <body>
 
-    <footer th:fragment="footer">
+<div th:if="${posts}">
 
-        This is a footer.
-
-    </footer>
+    <div th:each="post : ${posts}">
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="${post.body}"></p>
+    </div>
+</div>
 
 </body>
 </html>
