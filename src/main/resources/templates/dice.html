@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<h1>Please guess a number between 1 and 6</h1>
+
+    <div th:if="!${number}">
+        <ul>
+            <li><a href="/roll-dice/1">1</a></li>
+            <li><a href="/roll-dice/2">2</a></li>
+            <li><a href="/roll-dice/3">3</a></li>
+            <li><a href="/roll-dice/4">4</a></li>
+            <li><a href="/roll-dice/5">5</a></li>
+            <li><a href="/roll-dice/6">6</a></li>
+        </ul>
+    </div>
+
+    <div th:if="${number}" >
+        <h1>You guessed: <span th:text="${number}"></span></h1>
+        <h3>The random number was: <span th:text="${randomNumber}"></span></h3>
+        <div th:if="${correct}" >
+            <h4>You guessed correctly!!!</h4>
+        </div>
+        <div th:if="!${correct}" >
+            <h4>You guessed poorly</h4>
+        </div>
+
+        <div><h1>Here are your random dice rolls:</h1>
+            <div th:each="rando : ${randomSeries}">
+                <span th:text="${rando}" />
+            </div>
+
+        </div>
+        <div><h1>You matched this many times: <span th:text="${counter}"></span></h1>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
