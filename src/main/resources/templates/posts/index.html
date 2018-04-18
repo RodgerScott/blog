@@ -9,13 +9,17 @@
 
 <main class="container">
 
-<div th:if="${posts}">
+    <div class="row">
 
-    <div th:each="post : ${posts}">
-        <h3 th:text="${post.title}"></h3>
-        <p th:text="${post.body}"></p>
+        <div th:if="${posts}">
+
+            <div class="col-sm-6 posts" th:each="post : ${posts}">
+                <h3 th:text="${post.title}"></h3>
+                <p th:text="${post.body}"></p>
+            </div>
+        </div>
+
     </div>
-</div>
 
 </main>
 

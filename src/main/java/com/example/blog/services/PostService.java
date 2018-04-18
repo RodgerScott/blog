@@ -33,6 +33,12 @@ public class PostService {
         this.posts.add(newPost);
     }
 
+    public void update(Post newPost) {
+        newPost.setId(newPost.getId());
+        newPost.setTitle(newPost.getTitle());
+        newPost.setBody(newPost.getBody());
+    }
+
     public List<Post> all() {
 
         return posts;

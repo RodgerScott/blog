@@ -59,11 +59,12 @@ public class PostController {
         return "/posts/edit";
     }
     
-    @PostMapping("/ads/edit") 
-    public String makeEdit(@ModelAttribute Post post){
-        System.out.println("post.getId() = " + post.getId());
-        System.out.println("post.getTitle() = " + post.getTitle());
-        System.out.println("post.getBody() = " + post.getBody());
+    @PostMapping("/posts/edit")
+    public String makeEdit(@ModelAttribute Post editPost){
+        long id = editPost.getId();
+        editPost.setId(id);
+        editPost.setTitle(editPost.getTitle());
+        editPost.setBody(editPost.getBody());
         return "redirect:/posts";
     }
 
