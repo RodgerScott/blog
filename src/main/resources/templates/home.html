@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="partials/header :: header"></head>
+
 <body>
 
-<nav th:replace="partials/navbar :: navbar"></nav>
+<div th:replace="partials/navbar :: navbar"></div>
 
-    <h1>This is a homepage!</h1>
+    <h1>Welcome to the Linux Hobbyist</h1>
 
     <div th:if="${name}">
 
