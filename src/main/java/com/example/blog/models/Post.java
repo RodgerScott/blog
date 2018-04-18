@@ -1,4 +1,4 @@
-package com.example.blog;
+package com.example.blog.models;
 
 public class Post {
 
@@ -19,5 +19,13 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
+
+    public Post() {
     }
 }
