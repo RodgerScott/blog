@@ -5,6 +5,10 @@
 
 <div th:replace="partials/navbar :: navbar"></div>
 
+<div th:replace="partials/jumbo :: jumbo"></div>
+
+<main class="container">
+
 <div th:if="${posts}">
 
     <div th:each="post : ${posts}">
@@ -12,6 +16,8 @@
         <p th:text="${post.body}"></p>
     </div>
 </div>
+
+</main>
 
 <footer th:replace="partials/footer :: footer"></footer>
 

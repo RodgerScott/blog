@@ -22,10 +22,15 @@ public class PostService {
 
 
     public void createPosts() {
-        posts.add(new Post("Title 1", "Description 1", 1));
-        posts.add(new Post("Title 2", "Description 1", 2));
-        posts.add(new Post("Title 3", "Description 1", 3));
-        posts.add(new Post("Title 4", "Description 1", 4));
+        this.save(new Post("Title 1", "Description 1"));
+        this.save(new Post("Title 2", "Description 2"));
+        this.save(new Post("Title 3", "Description 3"));
+        this.save(new Post("Title 4", "Description 4"));
+    }
+
+    public void save(Post newPost) {
+        newPost.setId(this.posts.size()+ 1);
+        this.posts.add(newPost);
     }
 
     public List<Post> all() {
@@ -35,7 +40,7 @@ public class PostService {
 
     public Post indPost(long id) {
 
-        return (Post) posts.get(((int) id) - 1);
+        return posts.get(((int) id) - 1);
     }
 
 }

@@ -1,0 +1,10 @@
+body {
+    background-color: #5bc0de;
+}
+
+div.jumbotron.jumbotron-fluid {
+    background-image: url("../../static/img/jum-back.jpg");
+    text-align: center;
+    color: white;
+
+}

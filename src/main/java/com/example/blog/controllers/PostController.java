@@ -35,15 +35,36 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String viewCreateForm() {
-        return ("view the form for creating a post");
+    public String viewCreateForm(Model viewModel) {
+        viewModel.addAttribute("newPost", new Post());
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String makeNewPost() {
-        return ("create a new post");
+    public String makeNewPost(@ModelAttribute Post newPost) {
+        postService.save(newPost);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/rick-roll")
+    public String rickRoll() {
+        // redirecting to an absolute url
+        return "redirect:https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPost (Model model, @PathVariable long id) {
+        model.addAttribute("post", postService.indPost(id));
+
+        return "/posts/edit";
+    }
+    
+    @PostMapping("/ads/edit") 
+    public String makeEdit(@ModelAttribute Post post){
+        System.out.println("post.getId() = " + post.getId());
+        System.out.println("post.getTitle() = " + post.getTitle());
+        System.out.println("post.getBody() = " + post.getBody());
+        return "redirect:/posts";
     }
 
 

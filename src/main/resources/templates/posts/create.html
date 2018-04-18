@@ -5,19 +5,21 @@
 
 <div th:replace="partials/navbar :: navbar"></div>
 
-<div th:replace="partials/jumbo :: jumbo"></div>
-
 <main class="container">
 
-<div th:if="${post}">
-
-    <h3><span th:text="${post.title}"></span></h3>
-    <p th:text="${post.body}"></p>
-
-</div>
+<form th:action="@{/posts/create}" method="post" th:object="${newPost}">
+    Title:
+    <input th:field="*{title}" />
+    <br />
+    Description:
+    <input th:field="*{body}" />
+    <br />
+    <input type="submit" />
+</form>
 
 </main>
 
 <footer th:replace="partials/footer :: footer"></footer>
+
 </body>
 </html>
