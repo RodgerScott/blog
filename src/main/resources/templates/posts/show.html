@@ -5,10 +5,10 @@
 
 <div th:replace="partials/navbar :: navbar"></div>
 
-<div th:if="${post1}">
+<div th:if="${post}">
 
-    <h3><span th:text="${post1.title}"></span></h3>
-    <p th:text="${post1.body}"></p>
+    <h3><span th:text="${post.title}"></span></h3>
+    <p th:text="${post.body}"></p>
 
 </div>
 
