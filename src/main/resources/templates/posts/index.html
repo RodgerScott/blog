@@ -13,7 +13,7 @@
 
         <div th:if="${posts}">
 
-            <div class="col-sm-6 posts" th:each="post : ${posts}">
+            <div class="col-sm-12 posts center-block" th:each="post : ${posts}">
 
                 <h3 th:text="${post.title}"></h3>
                 <p th:text="${post.body}"></p>

@@ -16,4 +16,8 @@ nav.navbar.navbar-default {
 
 .posts {
     text-align: center;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin-bottom: 15px;
+    width: 80%;
 }
