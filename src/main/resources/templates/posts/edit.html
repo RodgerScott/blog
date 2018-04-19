@@ -7,7 +7,7 @@
 
 <main class="container">
 
-<form th:action="@{/posts/edit}" method="post" th:object="${post}">
+<form th:action="@{/posts/edit}" th:method="post" th:object="${post}">
     Title:
     <input th:field="*{title}" th:value="${title}" />
     <br />
@@ -17,6 +17,11 @@
     <input type="hidden" th:field="*{id}" th:value="${id}" />
     <input type="submit" />
 </form>
+
+    <form th:action="@{/posts/delete}" th:method="post" th:object="${post}">
+        <input type="hidden" th:field="*{id}" th:value="${id}" />
+        <button id="delete">Delete</button>
+    </form>
 
 </main>
 

@@ -14,8 +14,10 @@
         <div th:if="${posts}">
 
             <div class="col-sm-6 posts" th:each="post : ${posts}">
+
                 <h3 th:text="${post.title}"></h3>
                 <p th:text="${post.body}"></p>
+                <div><a th:href="@{/posts/{id}(id=${post.getId()})}">View Post</a></div>
             </div>
         </div>
 

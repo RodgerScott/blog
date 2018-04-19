@@ -1,10 +1,21 @@
 package com.example.blog.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="posts")
 public class Post {
 
-    private String title;
-    private String body;
+    @Id @GeneratedValue
+    @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
+
+    @Column(nullable = false, length = 200)
+    private String title;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String body;
+
 
     public String getTitle() {
         return title;

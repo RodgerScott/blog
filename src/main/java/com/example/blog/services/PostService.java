@@ -44,9 +44,5 @@ public class PostService {
         return posts;
     }
 
-    public Post indPost(long id) {
-
-        return posts.get(((int) id) - 1);
-    }
 
 }
