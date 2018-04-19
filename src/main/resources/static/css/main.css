@@ -4,6 +4,7 @@ body {
 
 div.jumbotron.jumbotron-fluid {
     background-image: url("../../static/img/jum-back.jpg");
+    background-size: cover;
     text-align: center;
     color: white;
 
