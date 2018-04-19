@@ -10,6 +10,10 @@ div.jumbotron.jumbotron-fluid {
 
 }
 
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+}
+
 .posts {
     text-align: center;
 }
