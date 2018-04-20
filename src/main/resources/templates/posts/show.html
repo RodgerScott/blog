@@ -13,6 +13,7 @@
 
     <h3><span th:text="${post.title}"></span></h3>
     <p th:text="${post.body}"></p>
+    <p><span th:text="${post.getUser().getEmail()}"></span></p>
     <div><a th:href="@{/posts/{id}/edit(id=${post.getId()})}">Edit</a></div>
 </div>
 

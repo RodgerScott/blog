@@ -2,7 +2,7 @@ package com.example.blog.controllers;
 
 import com.example.blog.models.Post;
 import com.example.blog.repositories.PostRepository;
-import com.example.blog.services.PostService;
+import com.example.blog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +12,12 @@ public class PostController {
 
 
     private final PostRepository postDao;
+    private final UserRepository userDao;
 
-
-    public PostController (PostRepository postDao) {
+    public PostController(PostRepository postDao, UserRepository userDao) {
         this.postDao = postDao;
+        this.userDao = userDao;
     }
-
 
     @GetMapping("posts")
     public String postsIndex(Model model) {
