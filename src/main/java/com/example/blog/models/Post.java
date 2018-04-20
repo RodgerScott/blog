@@ -110,10 +110,29 @@ public class Post {
         this.categories = categories;
     }
 
+    public Post(String title, String body, User user, List<Categories> categories) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+        this.categories = categories;
+    }
+
+    public Post(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
+
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
+
+    public Post(User user) {
+        this.user = user;
+    }
+
+
 
     public Post() {
     }

@@ -1,11 +1,14 @@
 package com.example.blog.controllers;
 
+import com.example.blog.models.Categories;
 import com.example.blog.models.Post;
 import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -41,6 +44,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String makeNewPost(@ModelAttribute Post newPost) {
+        newPost.setUser(userDao.findOne((long)2));
         postDao.save(newPost);
         return "redirect:/posts";
     }

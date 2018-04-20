@@ -6,24 +6,40 @@
 <div th:replace="partials/navbar :: navbar"></div>
 
 <div th:replace="partials/jumbo :: jumbo"></div>
-
-<main class="container">
+<div class="container">
 
     <div class="row">
-
-        <div th:if="${posts}">
-
-            <div class="col-sm-12 posts center-block" th:each="post : ${posts}">
-
-                <h3 th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
+        <div class="leftcolumn">
+            <div class="card"  th:each="post : ${posts}">
+                <h2 th:text="${post.title}"></h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <div class="fakeimg" style="height:200px;"><span th:each="image : ${post.images}"><img height="90%" width="90%" th:src="${image.path}"/></span></div>
+                <p th:text="${post.body}">Some text..</p>
+                <hr />
+                <div><span th:each="category : ${post.categories}"><span th:text="${category.name}"></span></span></div>
                 <div><a th:href="@{/posts/{id}(id=${post.getId()})}">View Post</a></div>
             </div>
         </div>
-
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>About Me</h2>
+                <div class="fakeimg" style="height:100px;">Image</div>
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            </div>
+            <div class="card">
+                <h3>Recent Posts</h3>
+                <div class="fakeimg">Image</div><br />
+                <div class="fakeimg">Image</div><br />
+                <div class="fakeimg">Image</div>
+            </div>
+        </div>
     </div>
 
-</main>
+</div>
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
 
 <footer th:replace="partials/footer :: footer"></footer>
 
