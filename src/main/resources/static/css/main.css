@@ -63,18 +63,14 @@ nav.navbar.navbar-default {
     text-align: center;
     background-color: #F8F8F8;
     margin-top: 20px;
+    font-family: 'Share Tech Mono', monospace;
 }
 
-.categorButt {
-    text-align: center;
-    height: 40px;
-    width: 90px;
-    border: 1px solid black;
-    border-radius: 15px;
-    margin-right: 5px;
-    color: black;
-    background-color: white;
+.btn {
+    margin-right: 10px;
 }
+
+
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {

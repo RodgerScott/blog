@@ -13,10 +13,11 @@
             <div class="card"  th:each="post : ${posts}">
                 <h2 th:text="${post.title}"></h2>
                 <h5>Post created on: <span th:text="${post.createDate}"></span></h5>
+                <h5>Post modified on: <span th:text="${post.modifyDate}"></span></h5>
                 <div class="fakeimg" style="height:200px;"><span th:each="image : ${post.images}"><img height="90%" width="90%" th:src="${image.path}"/></span></div>
-                <p th:text="${post.body}">Some text..</p>
+                <p class="bodyText" th:text="${post.body}"></p>
                 <hr />
-                <div><span th:each="category : ${post.categories}"><span class="categorButt" th:text="${category.name}"></span></span></div>
+                <div><span th:each="category : ${post.categories}"><button class="btn btn-primary" th:text="${category.name}"></button></span></div>
                 <div><a th:href="@{/posts/{id}(id=${post.getId()})}">View Post</a></div>
             </div>
         </div>
@@ -42,6 +43,6 @@
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
-
+<script src="../../static/js/index.js"></script>
 </body>
 </html>
