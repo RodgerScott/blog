@@ -14,7 +14,18 @@
     Description:
     <input th:field="*{body}" th:value="${body}" />
     <br />
-    <input type="hidden" th:field="*{id}" th:value="${id}" />
+    <hr />
+    <label>OS</label>
+    <input name="checkCat" type="checkbox" th:field="*{categories}" value = "OS" />
+    <label>Hosting</label>
+    <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Hosting"  />
+    <label>Coding</label>
+    <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Coding" />
+    <label>Hardware</label>
+    <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Hardware"  />
+    <label>General</label>
+    <input name="checkCat" type="checkbox" th:field="*{categories}" value = "General"  />
+    <input type="hidden" th:field="*{id}" th:value="${id}" /> <br />
     <input type="submit" />
 </form>
 

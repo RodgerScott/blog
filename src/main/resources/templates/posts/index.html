@@ -12,11 +12,11 @@
         <div class="leftcolumn">
             <div class="card"  th:each="post : ${posts}">
                 <h2 th:text="${post.title}"></h2>
-                <h5>Title description, Dec 7, 2017</h5>
+                <h5>Post created on: <span th:text="${post.createDate}"></span></h5>
                 <div class="fakeimg" style="height:200px;"><span th:each="image : ${post.images}"><img height="90%" width="90%" th:src="${image.path}"/></span></div>
                 <p th:text="${post.body}">Some text..</p>
                 <hr />
-                <div><span th:each="category : ${post.categories}"><span th:text="${category.name}"></span></span></div>
+                <div><span th:each="category : ${post.categories}"><span class="categorButt" th:text="${category.name}"></span></span></div>
                 <div><a th:href="@{/posts/{id}(id=${post.getId()})}">View Post</a></div>
             </div>
         </div>
