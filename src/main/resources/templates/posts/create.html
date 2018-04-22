@@ -15,6 +15,11 @@
         <label>Content:</label>
         <textarea  th:field="*{body}" ></textarea>
         <br />
+        <hr />
+        <label>Tech</label>
+        <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Tech" />
+        <label>Cars</label>
+        <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Cars"  />
         <input type="submit" />
     </form>
 </div>
