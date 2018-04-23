@@ -22,7 +22,7 @@ public class PostController {
         this.userDao = userDao;
     }
 
-    @GetMapping("posts")
+    @GetMapping("/")
     public String postsIndex(Model model) {
             model.addAttribute("posts", postDao.findAll());
         return "posts/index";
@@ -46,7 +46,7 @@ public class PostController {
     public String makeNewPost(@ModelAttribute Post newPost) {
         newPost.setUser(userDao.findOne((long)2));
         postDao.save(newPost);
-        return "redirect:/posts";
+        return "redirect:/";
     }
 
     @GetMapping("/rick-roll")
@@ -66,13 +66,13 @@ public class PostController {
     public String makeEdit(@ModelAttribute Post editPost){
         editPost.setUser(userDao.findOne((long)2));
         postDao.save(editPost);
-        return "redirect:/posts";
+        return "redirect:/";
     }
 
     @PostMapping("/posts/delete")
     public String deletePost(@ModelAttribute Post deletePost){
         postDao.delete(deletePost);
-        return "redirect:/posts";
+        return "redirect:/";
     }
 
 

@@ -28,8 +28,13 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/sign-up">Register</a></li>
+                    <li><a href="/login">Log In</a></li>
+                    <li>
+                        <form th:action="@{/logout}" th:method="post">
+                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                        </form>
+                    </li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->
