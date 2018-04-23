@@ -2,6 +2,7 @@ package com.example.blog.controllers;
 
 import com.example.blog.models.Categories;
 import com.example.blog.models.Post;
+import com.example.blog.repositories.CategoriesRepository;
 import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,12 @@ public class PostController {
 
     private final PostRepository postDao;
     private final UserRepository userDao;
+    private final CategoriesRepository categoriesDao;
 
-    public PostController(PostRepository postDao, UserRepository userDao) {
+    public PostController(PostRepository postDao, UserRepository userDao, CategoriesRepository categoriesDao) {
         this.postDao = postDao;
         this.userDao = userDao;
+        this.categoriesDao = categoriesDao;
     }
 
     @GetMapping("/")
