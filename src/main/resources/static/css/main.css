@@ -36,7 +36,7 @@ nav.navbar.navbar-default {
 
 /* Fake image */
 .fakeimg {
-    background-color: #aaa;
+    background-color: transparent;
     width: 100%;
     padding: 20px;
 }
@@ -68,6 +68,20 @@ nav.navbar.navbar-default {
 
 .btn {
     margin-right: 10px;
+}
+
+.titleLabel {
+    margin-top: 35px;
+}
+
+.createTitle {
+    width: 85%;
+    margin-bottom: 15px;
+}
+
+.createBody {
+    width: 85%;
+    height: 500px;
 }
 
 

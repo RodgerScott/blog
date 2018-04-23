@@ -9,13 +9,14 @@
 
 <div class="row">
     <form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/create}" method="post" th:object="${newPost}">
-        <label>Title:</label>
-        <input th:field="*{title}" />
+        <label class="titleLabel">Title</label> <br />
+        <input class="createTitle" th:field="*{title}" />
         <br />
-        <label>Content:</label>
-        <textarea  th:field="*{body}" ></textarea>
+        <label>Content</label> <br />
+        <textarea class="createBody"  th:field="*{body}" ></textarea>
         <br />
         <hr />
+        <h3>Select Category</h3>
         <label>OS</label>
         <input name="checkCat" type="checkbox" th:field="*{categories}" value = "OS" />
         <label>Hosting</label>
