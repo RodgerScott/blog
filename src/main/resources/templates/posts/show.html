@@ -11,6 +11,7 @@
 
     <div class="card">
         <h2 th:text="${post.title}"></h2>
+        <h5>Post created on: <span th:text="${post.modifyDate}"></span></h5>
         <div class="fakeimg" style="height:200px;" th:each="image : ${post.images}"><img height="100%" width="100%" th:src="${image.path}"/></div>
         <p th:text="${post.body}"></p>
         <p>Posted by: <span th:text="${post.user.username}"></span></p>
