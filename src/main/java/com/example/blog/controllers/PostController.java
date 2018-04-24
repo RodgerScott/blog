@@ -56,6 +56,8 @@ public class PostController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("newPost", newPost);
+            Iterable<Categories> categories = categoriesDao.findAll();
+            model.addAttribute("categories", categories);
             return "posts/create";
         }
 
