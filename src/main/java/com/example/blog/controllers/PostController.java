@@ -54,7 +54,6 @@ public class PostController {
     @PostMapping("/posts/create")
     public String makeNewPost(@Valid Post newPost, Errors validation, Model model) {
         if (validation.hasErrors()) {
-            model.addAttribute("errors", validation);
             model.addAttribute("newPost", newPost);
             Iterable<Categories> categories = categoriesDao.findAll();
             model.addAttribute("categories", categories);

@@ -18,6 +18,8 @@
         <div><span th:each="category : ${post.categories}"><button class="btn btn-primary" th:text="${category.name}"></button></span></div>
         <div><a th:href="@{/posts/{id}/edit(id=${post.getId()})}">Edit</a></div>
     </div>
+    <hr />
+    <h3>Add A Comment</h3>
 
 </main>
 
