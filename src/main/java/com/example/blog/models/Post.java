@@ -2,8 +2,10 @@ package com.example.blog.models;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +17,12 @@ public class Post {
     @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
+    @NotBlank(message = "Ads must have a title")
+    @Size(min = 3, message = "A title must be at least 3 characters.")
     @Column(nullable = false, length = 200)
     private String title;
 
+    @NotBlank(message = "Posts must have content")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 

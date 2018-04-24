@@ -9,8 +9,10 @@ import com.example.blog.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -50,7 +52,13 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String makeNewPost(@ModelAttribute Post newPost) {
+    public String makeNewPost(@Valid Post newPost, Errors validation, Model model) {
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("newPost", newPost);
+            return "posts/create";
+        }
+
         User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newPost.setUser(current);
         postDao.save(newPost);
