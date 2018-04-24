@@ -42,6 +42,8 @@ public class PostController {
     @GetMapping("/posts/create")
     public String viewCreateForm(Model viewModel) {
         viewModel.addAttribute("newPost", new Post());
+        Iterable<Categories> categories = categoriesDao.findAll();
+        viewModel.addAttribute("categories", categories);
         return "posts/create";
     }
 
@@ -61,6 +63,8 @@ public class PostController {
     @GetMapping("/posts/{id}/edit")
     public String editPost (Model model, @PathVariable long id) {
         model.addAttribute("post", postDao.findOne(id));
+        Iterable<Categories> categories = categoriesDao.findAll();
+        model.addAttribute("categories", categories);
 
         return "/posts/edit";
     }

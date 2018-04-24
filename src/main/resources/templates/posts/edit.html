@@ -20,16 +20,11 @@
             <br />
             <hr />
             <h3>Select Category</h3>
-            <label>General</label>
-            <input name="checkCat" type="checkbox" th:field="*{categories}" value = "General" />
-            <label>CSS</label>
-            <input name="checkCat" type="checkbox" th:field="*{categories}" value = "CSS"  />
-            <label>Javascript</label>
-            <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Javascript" />
-            <label>HTML</label>
-            <input name="checkCat" type="checkbox" th:field="*{categories}" value = "HTML"  />
-            <label>Hosting</label>
-            <input name="checkCat" type="checkbox" th:field="*{categories}" value = "Hosting"  /> <br />
+            <div>
+                <label th:each="category : ${categories}">
+                    <input type="checkbox" th:field="*{categories}" th:value="${category.id}" /> <span class="categories" th:text="${category.name}"></span>
+                </label>
+            </div>
             <input type="hidden" th:field="*{id}" th:value="${id}" /> <br />
             <input type="submit" />
         </form>
