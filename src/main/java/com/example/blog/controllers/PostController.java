@@ -52,7 +52,7 @@ public class PostController {
     @PostMapping("/posts/create")
     public String makeNewPost(@ModelAttribute Post newPost) {
         User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newPost.setUser(userDao.findOne(current.getId()));
+        newPost.setUser(current);
         postDao.save(newPost);
         return "redirect:/";
     }
@@ -75,7 +75,7 @@ public class PostController {
     @PostMapping("/posts/edit")
     public String makeEdit(@ModelAttribute Post editPost){
         User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        editPost.setUser(userDao.findOne(current.getId()));
+        editPost.setUser(current);
         postDao.save(editPost);
         return "redirect:/";
     }
