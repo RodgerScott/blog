@@ -2,9 +2,11 @@ package com.example.blog.controllers;
 
 import com.example.blog.models.Categories;
 import com.example.blog.models.Post;
+import com.example.blog.models.User;
 import com.example.blog.repositories.CategoriesRepository;
 import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +51,8 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String makeNewPost(@ModelAttribute Post newPost) {
-        newPost.setUser(userDao.findOne((long)2));
+        User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newPost.setUser(userDao.findOne(current.getId()));
         postDao.save(newPost);
         return "redirect:/";
     }
@@ -71,7 +74,8 @@ public class PostController {
     
     @PostMapping("/posts/edit")
     public String makeEdit(@ModelAttribute Post editPost){
-        editPost.setUser(userDao.findOne((long)2));
+        User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        editPost.setUser(userDao.findOne(current.getId()));
         postDao.save(editPost);
         return "redirect:/";
     }
