@@ -29,9 +29,9 @@
             </div>
             <div class="card">
                 <h3>Recent Posts</h3>
-                <div class="fakeimg"></div><br />
-                <div class="fakeimg"></div><br />
-                <div class="fakeimg"></div>
+                <div th:each="post,postStat : ${posts}">
+                    <div th:text="${post.title}" th:unless="${postStat.index > 2}" class="fakeimg"></div><br />
+                </div>
             </div>
         </div>
     </div>
