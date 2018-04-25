@@ -82,7 +82,14 @@ public class PostController {
     }
     
     @PostMapping("/posts/edit")
-    public String makeEdit(@ModelAttribute Post editPost){
+    public String makeEdit(@Valid Post editPost, Errors validation, Model model){
+        if (validation.hasErrors()) {
+            model.addAttribute("editPost", editPost);
+            Iterable<Categories> categories = categoriesDao.findAll();
+            model.addAttribute("categories", categories);
+            return "posts/edit";
+        }
+
         User current = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         editPost.setUser(current);
         postDao.save(editPost);
