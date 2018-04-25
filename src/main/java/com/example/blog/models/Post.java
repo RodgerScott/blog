@@ -36,7 +36,7 @@ public class Post {
     @Column(name = "modify_date")
     private Date modifyDate;
 
-    //Creates the relationship to users table
+    //Creates the relationship to the users table
     @OneToOne
     private User user;
 
