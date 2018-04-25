@@ -30,7 +30,8 @@
             <div class="card">
                 <h3>Recent Posts</h3>
                 <div th:each="post,postStat : ${posts}">
-                    <div th:text="${post.title}" th:unless="${postStat.index > 2}" class="fakeimg"></div><br />
+                    <div th:text="${post.title}" th:unless="${postStat.index > 2}" class="fakeimg"></div>
+                    <div class="recText" th:text="${post.body}" th:unless="${postStat.index > 2}"></div><br />
                 </div>
             </div>
         </div>
