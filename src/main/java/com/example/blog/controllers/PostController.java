@@ -1,6 +1,7 @@
 package com.example.blog.controllers;
 
 import com.example.blog.models.Categories;
+import com.example.blog.models.Comment;
 import com.example.blog.models.Post;
 import com.example.blog.models.User;
 import com.example.blog.repositories.CategoriesRepository;
@@ -41,6 +42,14 @@ public class PostController {
         model.addAttribute("post", postDao.findOne(id));
 
         return "posts/show";
+    }
+
+    @PostMapping("/posts/comment")
+    public String addComment (@ModelAttribute Post post, Model model, Comment newComment) {
+        model.addAttribute("newComment", newComment);
+        model.addAttribute("id", post.getId());
+        postDao.save(post);
+        return "posts/{id}";
     }
 
     @GetMapping("/posts/create")

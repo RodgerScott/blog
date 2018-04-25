@@ -19,7 +19,20 @@
         <div><a th:href="@{/posts/{id}/edit(id=${post.getId()})}">Edit</a></div>
     </div>
     <hr />
+    <h3>Comments:</h3>
+    <div><span th:each="comment : ${post.comments}"><span th:text="${comment.commentBody}"></span></span></div>
+    <hr />
+
     <h3>Add A Comment</h3>
+    <!--<div class="row">-->
+        <!--<form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/comment}" method="post" th:object="${post}">-->
+            <!--<label class="titleLabel">Comment:</label> <br />-->
+            <!--<input class="createTitle" th:field="*{comments.comment_body}" />-->
+            <!--<br />-->
+            <!--<input type="submit" />-->
+        <!--</form>-->
+    <!--</div>-->
+
 
 
 
