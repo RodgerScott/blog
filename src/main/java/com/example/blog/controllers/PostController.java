@@ -5,6 +5,7 @@ import com.example.blog.models.Comment;
 import com.example.blog.models.Post;
 import com.example.blog.models.User;
 import com.example.blog.repositories.CategoriesRepository;
+import com.example.blog.repositories.CommentRepository;
 import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,11 +24,13 @@ public class PostController {
     private final PostRepository postDao;
     private final UserRepository userDao;
     private final CategoriesRepository categoriesDao;
+    private final CommentRepository commentDao;
 
-    public PostController(PostRepository postDao, UserRepository userDao, CategoriesRepository categoriesDao) {
+    public PostController(PostRepository postDao, UserRepository userDao, CategoriesRepository categoriesDao, CommentRepository commentDao) {
         this.postDao = postDao;
         this.userDao = userDao;
         this.categoriesDao = categoriesDao;
+        this.commentDao = commentDao;
     }
 
     @GetMapping("/")
@@ -40,16 +43,16 @@ public class PostController {
     public String indPostView(@PathVariable long id, Model model) {
 
         model.addAttribute("post", postDao.findOne(id));
+        model.addAttribute("comment", new Comment());
 
         return "posts/show";
     }
 
     @PostMapping("/posts/comment")
-    public String addComment (@ModelAttribute Post post, Model model, Comment newComment) {
-        model.addAttribute("newComment", newComment);
-        model.addAttribute("id", post.getId());
-        postDao.save(post);
-        return "posts/{id}";
+    public String addComment (@RequestParam(name="postID") long id, Comment comment) {
+        comment.setPost(postDao.findOne(id));
+        commentDao.save(comment);
+        return "redirect:/";
     }
 
     @GetMapping("/posts/create")
