@@ -44,12 +44,18 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<PostImage> images;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<Comment> comments;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="posts_categories",
             joinColumns = {@JoinColumn(name="post_id")},
             inverseJoinColumns = {@JoinColumn(name="category_id")}
     )
+
+
+
     private List<Categories> categories;
 
     public User getUser() {
@@ -60,6 +66,13 @@ public class Post {
         this.user = user;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public List<PostImage> getImages() {
         return images;
@@ -117,21 +130,25 @@ public class Post {
         this.id = id;
     }
 
-    public Post(String title, String body, long id, User user, List<PostImage> images, List<Categories> categories) {
+
+
+    public Post(String title, String body, long id, User user, List<PostImage> images, List<Categories> categories, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
         this.images = images;
         this.categories = categories;
+        this.comments = comments;
     }
 
-    public Post(String title, String body, User user, List<PostImage> images, List<Categories> categories) {
+    public Post(String title, String body, User user, List<PostImage> images, List<Categories> categories, List<Comment> comments) {
         this.title = title;
         this.body = body;
         this.user = user;
         this.images = images;
         this.categories = categories;
+        this.comments = comments;
     }
 
     public Post(String title, String body, User user, List<Categories> categories) {
@@ -171,4 +188,6 @@ public class Post {
     }
 
 
+
+    
 }
