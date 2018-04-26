@@ -110,9 +110,8 @@ public class PostController {
     }
 
     @PostMapping("/posts/delete")
-    public String deletePost(@ModelAttribute Post deletePost) {
-        commentDao.delete(commentDao.findAll());
-        postDao.delete(deletePost);
+    public String deletePost(@RequestParam long id) {
+        postDao.delete((id));
         return "redirect:/";
     }
 
