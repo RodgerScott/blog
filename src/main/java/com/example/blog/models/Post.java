@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,10 +42,10 @@ public class Post {
     private User user;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", orphanRemoval = true)
     private List<PostImage> images;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", orphanRemoval = true)
     private List<Comment> comments;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -186,7 +187,6 @@ public class Post {
 
     public Post() {
     }
-
 
 
     

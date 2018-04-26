@@ -15,6 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -109,7 +110,8 @@ public class PostController {
     }
 
     @PostMapping("/posts/delete")
-    public String deletePost(@ModelAttribute Post deletePost){
+    public String deletePost(@ModelAttribute Post deletePost) {
+        commentDao.delete(commentDao.findAll());
         postDao.delete(deletePost);
         return "redirect:/";
     }
