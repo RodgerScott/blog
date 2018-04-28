@@ -11,13 +11,13 @@ public class UserWithRoles extends User implements UserDetails{
 
     public UserWithRoles(User user, List<String> roles) {
         super(user);  // Call the copy constructor defined in User
-        this.roles = roles;
+
 
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roles = ""; // Since we're not using the authorization part of the component
+        String roles = "ROLE_USER, ROLE_ADMIN"; // Since we're not using the authorization part of the component
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
     }
 
