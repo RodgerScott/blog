@@ -5,11 +5,14 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 public class UserWithRoles extends User implements UserDetails{
 
-    public UserWithRoles(User user) {
+    public UserWithRoles(User user, List<String> roles) {
         super(user);  // Call the copy constructor defined in User
+        this.roles = roles;
+
     }
 
     @Override

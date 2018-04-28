@@ -2,6 +2,7 @@ package com.example.blog.services;
 
 import com.example.blog.models.User;
 import com.example.blog.models.UserWithRoles;
+import com.example.blog.repositories.Roles;
 import com.example.blog.repositories.Users;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsLoader implements UserDetailsService {
     private final Users users;
+    private final Roles roles;
 
-    public UserDetailsLoader(Users users) {
+    public UserDetailsLoader(Users users, Roles roles) {
         this.users = users;
+        this.roles = roles;
     }
 
     @Override
@@ -23,6 +26,6 @@ public class UserDetailsLoader implements UserDetailsService {
             throw new UsernameNotFoundException("No user found for " + username);
         }
 
-        return new UserWithRoles(user);
+        return new UserWithRoles(user, roles.ofUserWith(username));
     }
 }
