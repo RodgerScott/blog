@@ -24,16 +24,8 @@ public class UserWithRoles extends User implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
-
-
-        if (getUsername().equalsIgnoreCase("ted")) {
-            list.add(new SimpleGrantedAuthority("ROLE_" + "ADMIN"));
-        } else {
-            list.add(new SimpleGrantedAuthority("ROLE_" + "USER"));
-        }
-
-        return list;
+        String roles = ""; // Since we're not using the authorization part of the component
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
     }
 
     @Override
