@@ -24,7 +24,6 @@ public class UserWithRoles extends User implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roles = "USER, ADMIN"; // Since we're not using the authorization part of the component
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
 
 
@@ -34,7 +33,7 @@ public class UserWithRoles extends User implements UserDetails{
             list.add(new SimpleGrantedAuthority("ROLE_" + "USER"));
         }
 
-        return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
+        return list;
     }
 
     @Override

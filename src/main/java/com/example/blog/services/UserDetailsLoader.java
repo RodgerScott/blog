@@ -26,10 +26,6 @@ public class UserDetailsLoader implements UserDetailsService {
             throw new UsernameNotFoundException("No user found for " + username);
         }
 
-        if (user.getUsername().equalsIgnoreCase("ted")) {
-            user.d
-        }
-
         return new UserWithRoles(user, roles.ofUserWith(username));
     }
 }
