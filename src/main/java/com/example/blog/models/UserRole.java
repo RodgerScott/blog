@@ -22,12 +22,6 @@ public class UserRole {
         this.role = role;
     }
 
-    public UserRole(UserRole copy) {
-        id= copy.id;
-        userId = copy.userId;
-        role = copy.role;
-    }
-
     public long getId() {
         return id;
     }
