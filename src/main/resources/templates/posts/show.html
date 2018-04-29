@@ -25,6 +25,7 @@
 
 
     <div sec:authorize="isAuthenticated()" class="row">
+        <h1 sec:authentication="principal.authorities"></h1>
         <h3>Add A Comment</h3>
         <form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/comment}" method="post" th:object="${comment}">
             <label class="titleLabel">Comment:</label> <br />
