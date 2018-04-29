@@ -11,26 +11,26 @@
     <div sec:authorize="isAuthenticated()">
 
 
-<div class="row">
-    <form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/create}" method="post" th:object="${newPost}">
-        <label class="titleLabel">Title</label> <br />
-        <input class="createTitle" th:field="*{title}" />
-        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" />
-        <br />
-        <label>Content</label> <br />
-        <textarea class="createBody"  th:field="*{body}" ></textarea>
-        <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" />
-        <br />
-        <hr />
-        <h3>Select Category</h3>
-        <div>
-            <label th:each="category : ${categories}">
-                <input type="checkbox" th:field="*{categories}" th:value="${category.id}" /> <span class="categories" th:text="${category.name}"></span>
-            </label>
-        </div>
-        <input type="submit" />
-    </form>
-</div>
+            <div class="row">
+                <form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/create}" method="post" th:object="${newPost}">
+                    <label class="titleLabel">Title</label> <br />
+                    <input class="createTitle" th:field="*{title}" />
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" />
+                    <br />
+                    <label>Content</label> <br />
+                    <textarea class="createBody"  th:field="*{body}" ></textarea>
+                    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" />
+                    <br />
+                    <hr />
+                    <h3>Select Category</h3>
+                    <div>
+                        <label th:each="category : ${categories}">
+                            <input type="checkbox" th:field="*{categories}" th:value="${category.id}" /> <span class="categories" th:text="${category.name}"></span>
+                        </label>
+                    </div>
+                    <input type="submit" />
+                </form>
+            </div>
 
     </div>
 

@@ -24,7 +24,7 @@
             <!-- Added some authentication view -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li sec:authorize="isAuthenticated()" class="active"><a href="/posts/create">Create Post<span class="sr-only">(current)</span></a></li>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="active"><a href="/posts/create">Create Post<span class="sr-only">(current)</span></a></li>
 
                 </ul>
 
