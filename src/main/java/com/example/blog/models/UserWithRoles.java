@@ -2,6 +2,7 @@ package com.example.blog.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -23,6 +24,14 @@ public class UserWithRoles extends User implements UserDetails{
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String roles = "USER, ADMIN"; // Since we're not using the authorization part of the component
+
+
+        if (getUsername().equalsIgnoreCase("ted")) {
+            list.add(new SimpleGrantedAuthority("ROLE_" + "ADMIN"));
+        } else {
+            list.add(new SimpleGrantedAuthority("ROLE_" + "USER"));
+        }
+
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
     }
 
