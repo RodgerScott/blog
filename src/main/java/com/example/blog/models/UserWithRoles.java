@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class UserWithRoles extends User implements UserDetails{
-    private List<String> userRoles;
+    private List<String> roles;
 
     public UserWithRoles(User user) {
         super(user);  // Call the copy constructor defined in User
@@ -19,20 +19,17 @@ public class UserWithRoles extends User implements UserDetails{
 
     public UserWithRoles (User user, List<String> userRoles) {
         super(user);
-        this.userRoles = userRoles;
+        this.roles = userRoles;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roles = ""; // Since we're not using the authorization part of the component
 
-        if (getId() == 1) {
-            roles += "ROLE_ADMIN";
+        String rolesString = "";
+        for(String role : roles) {
+            rolesString += "ROLE_" + role + ",";
         }
-        else {
-            roles += "ROLE_USER";
-        }
-        return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(rolesString);
     }
 
     @Override

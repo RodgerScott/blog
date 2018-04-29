@@ -10,6 +10,7 @@
 
     <div sec:authorize="isAuthenticated()">
 
+
 <div class="row">
     <form class="xs-offset-3 xs-col-6 center-block text-center" th:action="@{/posts/create}" method="post" th:object="${newPost}">
         <label class="titleLabel">Title</label> <br />
