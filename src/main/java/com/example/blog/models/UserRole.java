@@ -22,6 +22,10 @@ public class UserRole {
         this.role = role;
     }
 
+    public static UserRole blogger(User user) {
+        return new UserRole(user.getId(), "USER");
+    }
+
     public long getId() {
         return id;
     }
