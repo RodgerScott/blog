@@ -12,7 +12,6 @@
         <div class="leftcolumn">
             <div class="card"  th:each="post : ${posts}">
                 <h2 th:text="${post.title}"></h2>
-                <!--<h5>Post created on: <span th:text="${post.createDate}"></span></h5>-->
                 <h5>Post created on: <span th:text="${post.modifyDate}"></span></h5>
                 <div class="fakeimg" style="height:200px;" th:each="image : ${post.images}"><img height="100%" width="100%" th:src="${image.path}"/></div>
                 <p class="bodyText" th:text="${post.body}"></p>
